@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>表单控件</title>
+    <link href="../script/themes/default/easyui.css" rel="stylesheet" />
+    <link href="../script/themes/icon.css" rel="stylesheet" />
+    <script src="../script/jquery.min.js"></script>
+    <script src="../script/jquery.easyui.min.js"></script>
+    <script src="../script/locale/easyui-lang-zh_CN.js"></script>
+    <script>
+        function submitForm() {
+            $('#ff').form('submit');
+        }
+        function clearForm() {
+            $('#ff').form('clear');
+        }
+        function setTag() {
+            $('#tb').tagbox({
+                value: ['Apple', 'Orange']
+            });
+        }
+        function getTag() {
+            var v = $("#tb").tagbox('options');
+            for (var k in v.value) {
+                alert(v.value[k]);
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="easyui-panel" title="表单控件" style="height: 450px; width: 350px;">
+    <!--文本框-->
+    <div style="margin: 10px">
+        <label style="margin-right: 35px">姓名:</label>
+        <input class="easyui-textbox" style="width: 200px" required:"required"; />
+    </div>
+    <!--多行文本-->
+    <div style="margin: 10px">
+        <label style="margin-right: 10px">多行文本:</label>
+        <input class="easyui-textbox" style="width: 200px" data-options="required:true,multiline:true" />
+    </div>
+    <!--数字-->
+    <div style="margin: 10px">
+        <label style="margin-right: 35px">年龄:</label>
+        <input class="easyui-numberbox" style="width: 95px" data-options="min:0,max:100,required:true">
+        <input class="easyui-numberspinner" data-options="min:1,max:120,required:true" style="width: 100px;"></input>
+    </div>
+    <!--日期  -->
+    <div style="margin: 10px">
+        <label style="margin-right: 35px">日期:</label>
+        <input type="text" style="width: 200px" class="easyui-datebox" />
+    </div>
+    <!--日期时间-->
+    <div style="margin: 10px">
+        <label style="margin-right: 10px">日期时间:</label>
+        <input type="text" style="width: 200px" class="easyui-datetimebox" />
+    </div>
+        <!--日期时间-->
+    <div style="margin: 10px">
+        <label style="margin-right: 10px">日期时间:</label>
+        <input class="easyui-datetimespinner" labelPosition="top" value="6/24/2015" style="width:200px;">
+    </div>
+    <!--文本标签-->
+    <div style="margin: 10px">
+        <label style="margin-right: 10px">文本标签:</label>
+        <input id="tb" class="easyui-tagbox" name="subject" value="苹果,橘子" style="width: 200px" />
+    </div>
+    <!--下拉列表-->
+    <div style="margin: 10px">
+        <label style="margin-right: 35px">语言:</label>
+        <select class="easyui-combobox" name="language" style="width: 200px">
+            <option value="th">C</option>
+            <option value="tr">C#</option>
+            <option value="uk">Java</option>
+            <option value="vi">JQuery</option>
+        </select>
+    </div>
+    <!--单选-->
+    <div style="margin: 10px">
+        <label style="margin-right: 35px">单选:</label>
+        <input type="radio" name="name" value=" " />A
+        <input type="radio" name="name" value=" " />B
+        <input type="radio" name="name" value=" " />C
+    </div>
+    <!--复选-->
+    <div style="margin: 10px">
+        <label style="margin-right: 35px">复选:</label>
+        <input type="checkbox" name="name" value=" " />运动
+        <input type="checkbox" name="name" value=" " />游戏
+        <input type="checkbox" name="name" value=" " />音乐
+    </div>
+    <!--按钮-->
+    <a href="javascript:void(0)" class="easyui-linkbutton" iconcls='icon-ok' onclick="submitForm()" style="width: 80px">提交</a>
+</div>
+</body>
+</html>
